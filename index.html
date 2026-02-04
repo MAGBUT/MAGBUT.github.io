@@ -5,134 +5,281 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Łukasz Plata — CV</title>
   <meta name="description" content="CV — Łukasz Plata. Java / Spring / Angular / SCADA / OT-IT. Projekty: SMMU, Przychodnia, GitRepoInfo." />
+
   <style>
     :root{
-      --bg:#f6f8fc;
-      --card:#ffffff;
-      --text:#111827;
-      --muted:#4b5563;
-      --line:#e5e7eb;
-      --accent:#2563eb;
-      --accent2:#7c3aed;
-      --soft:#f3f4f6;
+      --bg: #0b1220;
+      --bg2:#0a1020;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.08);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --line: rgba(255,255,255,.12);
+      --accent:#60a5fa;
+      --accent2:#a78bfa;
+      --good:#34d399;
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius: 18px;
+      --radius2: 26px;
+      --max: 1120px;
     }
+
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f6f8fc;
+        --bg2:#ffffff;
+        --card:#ffffff;
+        --card2:#ffffff;
+        --text:#0f172a;
+        --muted:#475569;
+        --line:#e5e7eb;
+        --accent:#2563eb;
+        --accent2:#7c3aed;
+        --shadow: 0 14px 30px rgba(17,24,39,.08);
+      }
+    }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background: radial-gradient(1200px 700px at 10% -10%, rgba(37,99,235,.10), transparent 60%),
-                  radial-gradient(900px 600px at 90% 0%, rgba(124,58,237,.10), transparent 60%),
-                  var(--bg);
       color:var(--text);
       line-height:1.6;
+      background:
+        radial-gradient(1200px 700px at 10% -10%, color-mix(in oklab, var(--accent) 18%, transparent), transparent 60%),
+        radial-gradient(900px 600px at 90% 0%, color-mix(in oklab, var(--accent2) 18%, transparent), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
     }
+
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
-    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 64px}
-    .top{display:grid; grid-template-columns: 1.6fr 1fr; gap:16px; align-items:stretch}
-    @media (max-width:900px){ .top{grid-template-columns:1fr} }
-    .card{
-      background:var(--card);
+
+    .wrap{max-width:var(--max); margin:0 auto; padding:18px 18px 70px}
+
+    /* top nav */
+    .nav{
+      position:sticky; top:10px; z-index:20;
+      backdrop-filter: blur(10px);
+      background: color-mix(in oklab, var(--bg2) 70%, transparent);
       border:1px solid var(--line);
-      border-radius:16px;
-      padding:18px;
-      box-shadow: 0 14px 30px rgba(17,24,39,.06);
-    }
-    .hero h1{margin:0 0 6px; font-size:34px; letter-spacing:.2px}
-    .subtitle{margin:0; color:var(--muted); font-weight:600}
-    .pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
-    .pill{
-      display:inline-flex; align-items:center;
-      padding:7px 10px;
       border-radius:999px;
+      padding:10px 12px;
+      display:flex; align-items:center; justify-content:space-between;
+      gap:10px;
+      box-shadow: var(--shadow);
+    }
+    .nav .left{display:flex; align-items:center; gap:10px; min-width:0}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:7px 10px;
       border:1px solid var(--line);
-      background:var(--soft);
+      border-radius:999px;
+      background: color-mix(in oklab, var(--card) 80%, transparent);
       font-size:13px;
-      color:#111827;
+      color:var(--muted);
       white-space:nowrap;
     }
-    .pill b{font-weight:800}
-    h2{
-      margin:0 0 10px;
-      font-size:14px;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      color:var(--muted);
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px color-mix(in oklab, var(--accent) 18%, transparent);
     }
-    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px}
-    @media (max-width:800px){ .grid2{grid-template-columns:1fr} }
-    .section{margin-top:16px}
-    .row{padding:12px 0; border-top:1px solid var(--line)}
-    .row:first-of-type{border-top:0; padding-top:0}
-    .title{font-weight:850}
-    .meta{color:var(--muted); font-size:13px; margin-top:2px}
-    ul{margin:8px 0 0; padding-left:18px}
-    li{margin:4px 0}
-    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
-    .tag{
-      padding:6px 10px;
+    .navlinks{display:flex; flex-wrap:wrap; gap:8px; justify-content:flex-end}
+    .navlinks a{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:8px 10px;
       border-radius:999px;
       border:1px solid var(--line);
-      background:#fff;
-      font-size:12px;
-      color:var(--muted);
+      background: color-mix(in oklab, var(--card2) 85%, transparent);
+      color:var(--text);
+      font-weight:700;
+      font-size:13px;
     }
-    .kpi{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px}
-    @media (max-width:520px){ .kpi{grid-template-columns:1fr} }
-    .k{
-      padding:10px 12px;
-      border-radius:14px;
+    .navlinks a:hover{ text-decoration:none; border-color: color-mix(in oklab, var(--accent) 45%, var(--line)); }
+
+    /* layout */
+    .top{display:grid; grid-template-columns: 1.5fr 1fr; gap:16px; align-items:stretch; margin-top:16px}
+    @media (max-width:900px){ .top{grid-template-columns:1fr} }
+
+    .card{
+      background: color-mix(in oklab, var(--card) 92%, transparent);
       border:1px solid var(--line);
-      background:linear-gradient(180deg, rgba(37,99,235,.04), rgba(124,58,237,.03));
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow: var(--shadow);
     }
-    .k .n{font-weight:850}
-    .k .d{color:var(--muted); font-size:12px; margin-top:2px}
+    .card.soft{
+      background: color-mix(in oklab, var(--card2) 92%, transparent);
+    }
+
+    /* hero */
+    .hero{
+      border-radius: var(--radius2);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(800px 400px at 20% 10%, color-mix(in oklab, var(--accent) 22%, transparent), transparent 60%),
+        radial-gradient(800px 420px at 90% 20%, color-mix(in oklab, var(--accent2) 22%, transparent), transparent 60%);
+      opacity:.75;
+      pointer-events:none;
+      mask: linear-gradient(180deg, rgba(0,0,0,.9), transparent 70%);
+    }
+    .hero > *{ position:relative; }
+
+    .h1{
+      margin:0;
+      font-size: clamp(28px, 3.2vw, 42px);
+      letter-spacing:-.02em;
+      line-height:1.12;
+    }
+    .subtitle{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-weight:700;
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .subtitle .sep{opacity:.55}
+    .summary{
+      margin:14px 0 0;
+      color:var(--muted);
+      font-size:14px;
+      max-width:72ch;
+    }
+
+    /* pills/tags */
+    .pills,.tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .pill,.tag{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background: color-mix(in oklab, var(--bg2) 70%, transparent);
+      font-size:13px;
+      color:var(--text);
+      white-space:nowrap;
+    }
+    .pill b{font-weight:900}
+    .tag{font-size:12px; color:var(--muted); background:transparent}
+
+    /* section titles */
+    h2{
+      margin:0 0 12px;
+      font-size:13px;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:var(--muted);
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    .h2hint{font-size:12px; letter-spacing:0; text-transform:none; color:var(--muted); font-weight:600}
+
+    /* info blocks */
+    .kpi{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px}
+    @media (max-width:560px){ .kpi{grid-template-columns:1fr} }
+    .k{
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid var(--line);
+      background: linear-gradient(180deg,
+        color-mix(in oklab, var(--accent) 10%, transparent),
+        color-mix(in oklab, var(--accent2) 8%, transparent));
+    }
+    .k .n{font-weight:900}
+    .k .d{color:var(--muted); font-size:12px; margin-top:4px}
+
     .contactLine{
       display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      padding:10px 12px;
+      padding:12px 12px;
       border:1px solid var(--line);
-      border-radius:12px;
-      background:var(--soft);
+      border-radius:14px;
+      background: color-mix(in oklab, var(--bg2) 65%, transparent);
       margin-top:10px;
       font-size:14px;
     }
-    .contactLine span{color:var(--muted)}
-    .btns{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      padding:10px 12px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:#111827;
-      font-weight:700;
-      font-size:14px;
-    }
-    .btn.primary{
-      background:linear-gradient(90deg, rgba(37,99,235,.12), rgba(124,58,237,.10));
-      border-color:rgba(37,99,235,.25);
-    }
-    .small{font-size:13px; color:var(--muted)}
-    .footer{margin-top:14px; color:var(--muted); font-size:12px}
+    .contactLine span{color:var(--muted); font-weight:700}
+
+    /* grids */
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px}
+    @media (max-width:860px){ .grid2{grid-template-columns:1fr} }
+
+    /* projects */
     .projGrid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
     @media (max-width:900px){ .projGrid{grid-template-columns:1fr} }
+
+    .proj{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: color-mix(in oklab, var(--card2) 90%, transparent);
+      box-shadow:none;
+    }
     .projHead{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:flex-start}
-    .projHead .name{font-weight:900; font-size:16px}
+    .projHead .name{font-weight:950; font-size:16px; letter-spacing:-.01em}
+    .meta{color:var(--muted); font-size:13px; margin-top:4px}
     .chip{
       font-size:12px;
-      padding:5px 9px;
+      padding:6px 10px;
       border-radius:999px;
-      background:rgba(37,99,235,.08);
-      border:1px solid rgba(37,99,235,.22);
-      color:#1f3fbf;
-      font-weight:800;
+      background: color-mix(in oklab, var(--accent) 14%, transparent);
+      border:1px solid color-mix(in oklab, var(--accent) 28%, var(--line));
+      color: color-mix(in oklab, var(--accent) 80%, var(--text));
+      font-weight:900;
       white-space:nowrap;
     }
     .chip.purple{
-      background:rgba(124,58,237,.08);
-      border:1px solid rgba(124,58,237,.22);
-      color:#5b21b6;
+      background: color-mix(in oklab, var(--accent2) 14%, transparent);
+      border:1px solid color-mix(in oklab, var(--accent2) 28%, var(--line));
+      color: color-mix(in oklab, var(--accent2) 80%, var(--text));
+    }
+
+    ul{margin:10px 0 0; padding-left:18px; color:var(--muted)}
+    li{margin:6px 0}
+    code{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px}
+
+    /* experience timeline */
+    .timeline{margin-top:8px}
+    .titem{
+      position:relative;
+      padding:14px 14px 14px 18px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: color-mix(in oklab, var(--bg2) 70%, transparent);
+      margin-top:12px;
+      overflow:hidden;
+    }
+    .titem:before{
+      content:"";
+      position:absolute; left:0; top:0; bottom:0; width:4px;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      opacity:.9;
+    }
+    .tmain{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; align-items:baseline}
+    .trole{font-weight:950}
+    .tdate{color:var(--muted); font-size:13px; font-weight:700}
+
+    .small{font-size:13px; color:var(--muted)}
+    .footer{margin-top:10px; color:var(--muted); font-size:12px}
+
+    /* subtle motion */
+    @media (prefers-reduced-motion: no-preference){
+      .card, .proj, .titem{transition: transform .18s ease, border-color .18s ease}
+      .card:hover, .proj:hover, .titem:hover{
+        transform: translateY(-2px);
+        border-color: color-mix(in oklab, var(--accent) 35%, var(--line));
+      }
+    }
+
+    /* print */
+    @media print{
+      .nav{display:none}
+      body{background:#fff}
+      .card{box-shadow:none}
+      a{text-decoration:none; color:#000}
     }
   </style>
 </head>
@@ -140,11 +287,30 @@
 <body>
   <div class="wrap">
 
+    <!-- NAV -->
+    <div class="nav">
+      <div class="left">
+        <span class="badge"><span class="dot"></span> CV · Łukasz Plata</span>
+        <span class="badge">Java · Spring · Angular · SCADA / OT-IT</span>
+      </div>
+      <div class="navlinks">
+        <a href="#projekty">Projekty</a>
+        <a href="#doswiadczenie">Doświadczenie</a>
+        <a href="#umiejetnosci">Umiejętności</a>
+        <a href="#edukacja">Edukacja</a>
+        <a href="#rodo">RODO</a>
+      </div>
+    </div>
+
     <div class="top">
       <!-- HERO -->
       <div class="card hero">
-        <h1>Łukasz Plata</h1>
-        <p class="subtitle">Java / Spring · Angular · SCADA / OT-IT</p>
+        <h1 class="h1">Łukasz Plata</h1>
+        <div class="subtitle">
+          <span>Java / Spring</span><span class="sep">•</span>
+          <span>Angular / TypeScript</span><span class="sep">•</span>
+          <span>SCADA / OT-IT</span>
+        </div>
 
         <div class="pills">
           <span class="pill"><b>Java</b> · Spring</span>
@@ -157,7 +323,7 @@
         <div class="kpi">
           <div class="k">
             <div class="n">FAKRO — SMMU (SCADA)</div>
-            <div class="d">system akwizycji danych, wizualizacji i analityki</div>
+            <div class="d">akwizycja danych · wizualizacja · analityka</div>
           </div>
           <div class="k">
             <div class="n">AGH — Automatyka i Robotyka</div>
@@ -165,32 +331,26 @@
           </div>
         </div>
 
-        <div class="btns">
-          <a class="btn primary" href="#projekty">Projekty</a>
-          <a class="btn" href="#doswiadczenie">Doświadczenie</a>
-          <a class="btn" href="#umiejetnosci">Umiejętności</a>
-        </div>
-
-        <p class="small" style="margin:14px 0 0">
-          Stawiam na rozwój i budowanie rozwiązań usprawniających procesy produkcyjne.
-          Łączę backend (Java) i frontend (Angular) oraz integracje z urządzeniami przemysłowymi.
+        <p class="summary">
+          Buduję rozwiązania dla produkcji: backend (Java), frontend (Angular) i integracje OT (OPC UA / MQTT / ADS).
+          Stawiam na czytelne UI, stabilne API i praktyczne monitorowanie maszyn.
         </p>
       </div>
 
       <!-- CONTACT -->
-      <div class="card">
-        <h2>Kontakt</h2>
+      <div class="card soft">
+        <h2>Kontakt <span class="h2hint">szybki dostęp</span></h2>
         <div class="contactLine"><span>Email</span><a href="mailto:platalukasz6@gmail.com">platalukasz6@gmail.com</a></div>
         <div class="contactLine"><span>Telefon</span><a href="tel:+48514215132">+48 514 215 132</a></div>
         <div class="contactLine"><span>Miejscowość</span><b>Stary Sącz</b></div>
         <div class="contactLine"><span>GitHub</span><a href="https://github.com/MAGBUT" target="_blank" rel="noreferrer">github.com/MAGBUT</a></div>
 
-        <div class="section">
+        <div style="margin-top:16px">
           <h2>Języki</h2>
           <div class="tags"><span class="tag">Angielski — średni</span></div>
         </div>
 
-        <div class="section">
+        <div style="margin-top:16px">
           <h2>Zainteresowania</h2>
           <div class="tags">
             <span class="tag">Nowe technologie</span>
@@ -204,11 +364,11 @@
 
     <!-- PROJECTS -->
     <div id="projekty" class="card" style="margin-top:16px">
-      <h2>Projekty</h2>
+      <h2>Projekty <span class="h2hint">wybrane realizacje</span></h2>
 
       <div class="projGrid">
         <!-- SMMU -->
-        <div class="card" style="padding:16px; box-shadow:none">
+        <div class="proj">
           <div class="projHead">
             <div>
               <div class="name">SMMU — System Monitorowania Maszyn i Urządzeń</div>
@@ -218,12 +378,12 @@
           </div>
 
           <p class="small" style="margin:10px 0 0">
-            System do akwizycji danych w czasie rzeczywistym z maszyn i czujników, wizualizacji w aplikacji webowej oraz budowy bazy danych do analiz.
+            Akwizycja danych w czasie rzeczywistym z maszyn i czujników, wizualizacja w aplikacji webowej oraz baza pod analizy.
           </p>
 
           <ul>
             <li>Zbieranie i normalizacja danych z urządzeń (OPC UA / MQTT / ADS).</li>
-            <li>Wizualizacja: synoptyki, trendy, tabele + role i uprawnienia.</li>
+            <li>UI: synoptyki, trendy, tabele + role i uprawnienia.</li>
             <li>Archiwizacja: InfluxDB (time-series) + MS SQL (konfiguracje i użytkownicy).</li>
           </ul>
 
@@ -234,7 +394,7 @@
         </div>
 
         <!-- GitRepoInfo -->
-        <div class="card" style="padding:16px; box-shadow:none">
+        <div class="proj">
           <div class="projHead">
             <div>
               <div class="name">GitRepoInfo</div>
@@ -246,12 +406,12 @@
           </div>
 
           <p class="small" style="margin:10px 0 0">
-            Aplikacja pobiera informacje o repozytoriach użytkownika: listę publicznych repo (bez forków), gałęzie i SHA ostatnich commitów.
+            API pobiera informacje o repozytoriach użytkownika: listę publicznych repo (bez forków), gałęzie i SHA ostatnich commitów.
           </p>
 
           <ul>
-            <li>Endpoint: <code>/api/git/user/{userName}</code> (JSON) + obsługa błędów (404/406). </li>
-            <li>Testy: WireMock / Rest Assured / Mockito. </li>
+            <li>Endpoint: <code>/api/git/user/{userName}</code> (JSON) + obsługa błędów (404/406).</li>
+            <li>Testy: WireMock / Rest Assured / Mockito.</li>
           </ul>
 
           <div class="tags">
@@ -265,7 +425,7 @@
         </div>
 
         <!-- Przychodnia -->
-        <div class="card" style="padding:16px; box-shadow:none">
+        <div class="proj">
           <div class="projHead">
             <div>
               <div class="name">Przychodnia</div>
@@ -277,12 +437,12 @@
           </div>
 
           <p class="small" style="margin:10px 0 0">
-            Projekt aplikacji webowej (Java + warstwa UI) związanej z obsługą „przychodni” — w repo widać część frontową (HTML/CSS) oraz backend w Javie.
+            Projekt aplikacji webowej związanej z obsługą „przychodni” — część frontowa (HTML/CSS) oraz backend w Javie.
           </p>
 
           <ul>
-            <li>Struktura typowa dla aplikacji backend + UI, z elementami bazy danych (diagram w repo).</li>
-            <li>Projekt nadaje się jako pozycja do portfolio (CRUD + logika domenowa, UI). </li>
+            <li>Klasyczny układ backend + UI, elementy bazy danych (diagram w repo).</li>
+            <li>Dobra pozycja do portfolio: CRUD + logika domenowa + UI.</li>
           </ul>
 
           <div class="tags">
@@ -292,7 +452,7 @@
           </div>
 
           <div class="small" style="margin-top:10px">
-            Jeśli chcesz, dopasuję opis 1:1 do funkcji aplikacji — podeślij 3–6 punktów „co działa” (np. rejestracja pacjenta / wizyty / lekarze / grafiki itp.).
+            Jeśli chcesz, dopasuję opis 1:1 do funkcji aplikacji — podeślij 3–6 punktów „co działa”.
           </div>
         </div>
       </div>
@@ -300,40 +460,48 @@
 
     <!-- EXPERIENCE -->
     <div id="doswiadczenie" class="card" style="margin-top:16px">
-      <h2>Doświadczenie</h2>
+      <h2>Doświadczenie <span class="h2hint">timeline</span></h2>
 
-      <div class="row">
-        <div class="title">Automatyk-programista — FAKRO (Nowy Sącz)</div>
-        <div class="meta">05.2024 – obecnie</div>
-        <ul>
-          <li>Rozwój i utrzymanie systemu SCADA / SMMU (Java + Angular).</li>
-          <li>Integracje z maszynami: OPC UA / MQTT / ADS.</li>
-          <li>Bazy: InfluxDB (dane dynamiczne) + SQL (konfiguracje / użytkownicy).</li>
-          <li>OT: ESP (C++), PLC (ST).</li>
-        </ul>
-      </div>
+      <div class="timeline">
+        <div class="titem">
+          <div class="tmain">
+            <div class="trole">Automatyk-programista — FAKRO (Nowy Sącz)</div>
+            <div class="tdate">05.2024 – obecnie</div>
+          </div>
+          <ul>
+            <li>Rozwój i utrzymanie systemu SCADA / SMMU (Java + Angular).</li>
+            <li>Integracje z maszynami: OPC UA / MQTT / ADS.</li>
+            <li>Bazy: InfluxDB (dane dynamiczne) + SQL (konfiguracje / użytkownicy).</li>
+            <li>OT: ESP (C++), PLC (ST).</li>
+          </ul>
+        </div>
 
-      <div class="row">
-        <div class="title">Technolog-konstruktor maszyn — FAKRO (Nowy Sącz)</div>
-        <div class="meta">03.2019 – 04.2024</div>
-        <ul>
-          <li>Konstruowanie i modernizacja maszyn, remonty oraz prace związane z programowaniem maszyn.</li>
-        </ul>
-      </div>
+        <div class="titem">
+          <div class="tmain">
+            <div class="trole">Technolog-konstruktor maszyn — FAKRO (Nowy Sącz)</div>
+            <div class="tdate">03.2019 – 04.2024</div>
+          </div>
+          <ul>
+            <li>Konstruowanie i modernizacja maszyn, remonty oraz prace związane z programowaniem maszyn.</li>
+          </ul>
+        </div>
 
-      <div class="row">
-        <div class="title">Programista i operator CNC — Grand (Korzenna)</div>
-        <div class="meta">09.2017 – 02.2019</div>
-        <ul>
-          <li>Programowanie tokarki CNC, dobór narzędzi i parametrów, realizacja elementów wg rysunku.</li>
-        </ul>
+        <div class="titem">
+          <div class="tmain">
+            <div class="trole">Programista i operator CNC — Grand (Korzenna)</div>
+            <div class="tdate">09.2017 – 02.2019</div>
+          </div>
+          <ul>
+            <li>Programowanie tokarki CNC, dobór narzędzi i parametrów, realizacja elementów wg rysunku.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
     <!-- SKILLS / EDU -->
     <div class="grid2">
       <div id="umiejetnosci" class="card">
-        <h2>Umiejętności</h2>
+        <h2>Umiejętności <span class="h2hint">stack</span></h2>
         <div class="tags">
           <span class="tag">Java</span>
           <span class="tag">Spring</span>
@@ -355,21 +523,28 @@
         </div>
       </div>
 
-      <div class="card">
+      <div id="edukacja" class="card">
         <h2>Edukacja i kursy</h2>
 
-        <div class="row">
-          <div class="title">AGH Kraków — Automatyka i Robotyka (inż.)</div>
-          <div class="meta">10.2017 – 06.2022</div>
+        <div class="titem" style="margin-top:0">
+          <div class="tmain">
+            <div class="trole">AGH Kraków — Automatyka i Robotyka (inż.)</div>
+            <div class="tdate">10.2017 – 06.2022</div>
+          </div>
         </div>
 
-        <div class="row">
-          <div class="title">Zespół Szkół Samochodowych — Mechatronika</div>
-          <div class="meta">09.2013 – 05.2017</div>
+        <div class="titem">
+          <div class="tmain">
+            <div class="trole">Zespół Szkół Samochodowych — Mechatronika</div>
+            <div class="tdate">09.2013 – 05.2017</div>
+          </div>
         </div>
 
-        <div class="row">
-          <div class="title">Kursy</div>
+        <div class="titem">
+          <div class="tmain">
+            <div class="trole">Kursy</div>
+            <div class="tdate">2017–2023</div>
+          </div>
           <ul>
             <li>Java (zajavka.pl) — 04.2023</li>
             <li>Spring (javastart.pl) — 03.2022</li>
@@ -381,7 +556,7 @@
       </div>
     </div>
 
-    <div class="card" style="margin-top:16px">
+    <div id="rodo" class="card" style="margin-top:16px">
       <h2>RODO</h2>
       <div class="footer">
         Zgadzam się na przetwarzanie danych osobowych zawartych w moim CV dla celów prowadzenia rekrutacji oraz przyszłych rekrutacji.
