@@ -4,116 +4,136 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Łukasz Plata — CV</title>
-  <meta name="description" content="CV — Łukasz Plata. Java / Angular / SCADA / IoT / integracje przemysłowe (OPC UA, MQTT, ADS)." />
+  <meta name="description" content="CV — Łukasz Plata. Java / Spring / Angular / SCADA / OT-IT. Projekty: SMMU, Przychodnia, GitRepoInfo." />
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#0f1a2e;
-      --text:#e7eefc;
-      --muted:#a9b7d0;
-      --line:rgba(255,255,255,.10);
-      --accent:#7dd3fc;
-      --accent2:#a78bfa;
-      --ok:#34d399;
+      --bg:#f6f8fc;
+      --card:#ffffff;
+      --text:#111827;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --accent:#2563eb;
+      --accent2:#7c3aed;
+      --soft:#f3f4f6;
     }
     *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
-      background:
-        radial-gradient(1000px 600px at 20% -10%, rgba(125,211,252,.25), transparent 60%),
-        radial-gradient(900px 600px at 90% 10%, rgba(167,139,250,.22), transparent 60%),
-        linear-gradient(180deg, var(--bg), #070b14 60%);
+      background: radial-gradient(1200px 700px at 10% -10%, rgba(37,99,235,.10), transparent 60%),
+                  radial-gradient(900px 600px at 90% 0%, rgba(124,58,237,.10), transparent 60%),
+                  var(--bg);
       color:var(--text);
-      line-height:1.55;
+      line-height:1.6;
     }
     a{color:var(--accent); text-decoration:none}
     a:hover{text-decoration:underline}
-    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 60px}
-    .top{
-      display:grid;
-      grid-template-columns: 1.4fr .9fr;
-      gap:18px;
-      align-items:stretch;
-    }
+    .wrap{max-width:1100px; margin:0 auto; padding:28px 18px 64px}
+    .top{display:grid; grid-template-columns: 1.6fr 1fr; gap:16px; align-items:stretch}
     @media (max-width:900px){ .top{grid-template-columns:1fr} }
     .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      background:var(--card);
       border:1px solid var(--line);
-      border-radius:18px;
+      border-radius:16px;
       padding:18px;
-      box-shadow: 0 18px 50px rgba(0,0,0,.35);
+      box-shadow: 0 14px 30px rgba(17,24,39,.06);
     }
-    .hero h1{margin:0 0 6px; font-size:32px; letter-spacing:.2px}
-    .role{
-      display:flex; flex-wrap:wrap; gap:8px;
-      margin:0 0 12px;
-      color:var(--muted);
-      font-weight:600;
-    }
+    .hero h1{margin:0 0 6px; font-size:34px; letter-spacing:.2px}
+    .subtitle{margin:0; color:var(--muted); font-weight:600}
+    .pills{display:flex; flex-wrap:wrap; gap:8px; margin-top:12px}
     .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:6px 10px;
+      display:inline-flex; align-items:center;
+      padding:7px 10px;
       border-radius:999px;
       border:1px solid var(--line);
-      background:rgba(0,0,0,.18);
+      background:var(--soft);
       font-size:13px;
-      color:var(--muted);
+      color:#111827;
       white-space:nowrap;
     }
-    .pill b{color:var(--text); font-weight:700}
-    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:14px}
-    @media (max-width:700px){ .grid2{grid-template-columns:1fr} }
-
+    .pill b{font-weight:800}
     h2{
       margin:0 0 10px;
-      font-size:16px;
-      letter-spacing:.2px;
+      font-size:14px;
+      letter-spacing:.12em;
       text-transform:uppercase;
       color:var(--muted);
     }
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px}
+    @media (max-width:800px){ .grid2{grid-template-columns:1fr} }
     .section{margin-top:16px}
-    .row{
-      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
-      padding:12px 0;
-      border-top:1px solid var(--line);
-    }
+    .row{padding:12px 0; border-top:1px solid var(--line)}
     .row:first-of-type{border-top:0; padding-top:0}
-    .row .left{min-width:240px}
-    .row .title{font-weight:800}
-    .row .meta{color:var(--muted); font-size:13px; margin-top:2px}
-    .row ul{margin:8px 0 0; padding-left:18px}
-    .row li{margin:4px 0}
+    .title{font-weight:850}
+    .meta{color:var(--muted); font-size:13px; margin-top:2px}
+    ul{margin:8px 0 0; padding-left:18px}
+    li{margin:4px 0}
     .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:10px}
     .tag{
       padding:6px 10px;
       border-radius:999px;
       border:1px solid var(--line);
-      background:rgba(255,255,255,.04);
+      background:#fff;
       font-size:12px;
       color:var(--muted);
     }
-    .badge{
-      display:inline-flex; align-items:center;
-      padding:4px 8px; border-radius:8px;
-      background:rgba(52,211,153,.10);
-      border:1px solid rgba(52,211,153,.25);
-      color:#b9f6df; font-size:12px; font-weight:700;
-      margin-left:8px;
+    .kpi{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:12px}
+    @media (max-width:520px){ .kpi{grid-template-columns:1fr} }
+    .k{
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:linear-gradient(180deg, rgba(37,99,235,.04), rgba(124,58,237,.03));
+    }
+    .k .n{font-weight:850}
+    .k .d{color:var(--muted); font-size:12px; margin-top:2px}
+    .contactLine{
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+      padding:10px 12px;
+      border:1px solid var(--line);
+      border-radius:12px;
+      background:var(--soft);
+      margin-top:10px;
+      font-size:14px;
+    }
+    .contactLine span{color:var(--muted)}
+    .btns{display:flex; flex-wrap:wrap; gap:10px; margin-top:12px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:#fff;
+      color:#111827;
+      font-weight:700;
+      font-size:14px;
+    }
+    .btn.primary{
+      background:linear-gradient(90deg, rgba(37,99,235,.12), rgba(124,58,237,.10));
+      border-color:rgba(37,99,235,.25);
     }
     .small{font-size:13px; color:var(--muted)}
-    .footer{margin-top:18px; color:var(--muted); font-size:12px}
-    .kpi{
-      display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px
+    .footer{margin-top:14px; color:var(--muted); font-size:12px}
+    .projGrid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+    @media (max-width:900px){ .projGrid{grid-template-columns:1fr} }
+    .projHead{display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; align-items:flex-start}
+    .projHead .name{font-weight:900; font-size:16px}
+    .chip{
+      font-size:12px;
+      padding:5px 9px;
+      border-radius:999px;
+      background:rgba(37,99,235,.08);
+      border:1px solid rgba(37,99,235,.22);
+      color:#1f3fbf;
+      font-weight:800;
+      white-space:nowrap;
     }
-    @media (max-width:500px){ .kpi{grid-template-columns:1fr} }
-    .kpi .k{
-      padding:10px 12px; border-radius:14px;
-      border:1px solid var(--line);
-      background:rgba(0,0,0,.18);
+    .chip.purple{
+      background:rgba(124,58,237,.08);
+      border:1px solid rgba(124,58,237,.22);
+      color:#5b21b6;
     }
-    .k .n{font-weight:800}
-    .k .d{color:var(--muted); font-size:12px; margin-top:2px}
   </style>
 </head>
 
@@ -124,167 +144,196 @@
       <!-- HERO -->
       <div class="card hero">
         <h1>Łukasz Plata</h1>
-        <div class="role">
-          <span class="pill"><b>Java</b> / Spring</span>
-          <span class="pill"><b>Angular</b> / TypeScript</span>
-          <span class="pill"><b>SCADA</b> / OT-IT</span>
-          <span class="pill"><b>OPC UA</b> · MQTT · ADS</span>
-        </div>
+        <p class="subtitle">Java / Spring · Angular · SCADA / OT-IT</p>
 
-        <p style="margin:0; color:var(--muted);">
-          Stawiam na rozwój i budowanie rozwiązań, które usprawniają procesy produkcyjne.
-          Szczególnie interesuje mnie łączenie frontendu (Angular) i backendu (Java) w spójną całość oraz integracje z urządzeniami przemysłowymi.
-        </p>
+        <div class="pills">
+          <span class="pill"><b>Java</b> · Spring</span>
+          <span class="pill"><b>Angular</b> · TypeScript</span>
+          <span class="pill"><b>SQL</b> · InfluxDB</span>
+          <span class="pill"><b>OPC UA</b> · MQTT · ADS</span>
+          <span class="pill"><b>C++</b> (ESP) · PLC ST</span>
+        </div>
 
         <div class="kpi">
           <div class="k">
-            <div class="n">FAKRO — SCADA / SMMU</div>
-            <div class="d">rozwój systemu monitorowania maszyn i urządzeń</div>
+            <div class="n">FAKRO — SMMU (SCADA)</div>
+            <div class="d">system akwizycji danych, wizualizacji i analityki</div>
           </div>
           <div class="k">
             <div class="n">AGH — Automatyka i Robotyka</div>
             <div class="d">inżynier (2017–2022)</div>
           </div>
         </div>
+
+        <div class="btns">
+          <a class="btn primary" href="#projekty">Projekty</a>
+          <a class="btn" href="#doswiadczenie">Doświadczenie</a>
+          <a class="btn" href="#umiejetnosci">Umiejętności</a>
+        </div>
+
+        <p class="small" style="margin:14px 0 0">
+          Stawiam na rozwój i budowanie rozwiązań usprawniających procesy produkcyjne.
+          Łączę backend (Java) i frontend (Angular) oraz integracje z urządzeniami przemysłowymi.
+        </p>
       </div>
 
       <!-- CONTACT -->
       <div class="card">
         <h2>Kontakt</h2>
-        <div class="section">
-          <div class="pill" style="width:100%; justify-content:space-between">
-            <span>Email</span><a href="mailto:platalukasz6@gmail.com">platalukasz6@gmail.com</a>
-          </div>
-          <div class="pill" style="width:100%; justify-content:space-between; margin-top:10px">
-            <span>Telefon</span><a href="tel:+48514215132">+48 514 215 132</a>
-          </div>
-          <div class="pill" style="width:100%; justify-content:space-between; margin-top:10px">
-            <span>Miejscowość</span><span>Stary Sącz</span>
-          </div>
-          <div class="pill" style="width:100%; justify-content:space-between; margin-top:10px">
-            <span>GitHub</span><a href="https://github.com/MAGBUT" target="_blank" rel="noreferrer">github.com/MAGBUT</a>
-          </div>
-          <div class="pill" style="width:100%; justify-content:space-between; margin-top:10px">
-            <span>Data ur.</span><span>09.03.1997</span>
-          </div>
-        </div>
+        <div class="contactLine"><span>Email</span><a href="mailto:platalukasz6@gmail.com">platalukasz6@gmail.com</a></div>
+        <div class="contactLine"><span>Telefon</span><a href="tel:+48514215132">+48 514 215 132</a></div>
+        <div class="contactLine"><span>Miejscowość</span><b>Stary Sącz</b></div>
+        <div class="contactLine"><span>GitHub</span><a href="https://github.com/MAGBUT" target="_blank" rel="noreferrer">github.com/MAGBUT</a></div>
 
         <div class="section">
           <h2>Języki</h2>
+          <div class="tags"><span class="tag">Angielski — średni</span></div>
+        </div>
+
+        <div class="section">
+          <h2>Zainteresowania</h2>
           <div class="tags">
-            <span class="tag">Angielski — średni</span>
+            <span class="tag">Nowe technologie</span>
+            <span class="tag">Elektronika</span>
+            <span class="tag">Sport</span>
+            <span class="tag">Filmy</span>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- MAIN PROJECT -->
-    <div class="card" style="margin-top:18px">
-      <h2>Największy projekt</h2>
+    <!-- PROJECTS -->
+    <div id="projekty" class="card" style="margin-top:16px">
+      <h2>Projekty</h2>
 
-      <div class="row">
-        <div class="left">
-          <div class="title">SMMU — System Monitorowania Maszyn i Urządzeń</div>
-          <div class="meta">FAKRO · SCADA / monitoring · wdrożenie etapowe (w trakcie)</div>
-        </div>
-        <div class="right" style="flex:1; min-width:260px">
-          <p style="margin:0; color:var(--muted)">
-            System do akwizycji danych w czasie rzeczywistym z maszyn i czujników, wizualizacji w aplikacji webowej
-            oraz budowy bazy danych do analiz trendów i utrzymania ruchu.
-          </p>
-
-          <div class="tags">
-            <span class="tag">Backend: Java (mikroserwisy) + REST API</span>
-            <span class="tag">Frontend: Angular (web)</span>
-            <span class="tag">InfluxDB (time-series)</span>
-            <span class="tag">MS SQL (konfiguracje, użytkownicy)</span>
-            <span class="tag">OPC UA · MQTT · ADS</span>
-            <span class="tag">Git · SQL</span>
+      <div class="projGrid">
+        <!-- SMMU -->
+        <div class="card" style="padding:16px; box-shadow:none">
+          <div class="projHead">
+            <div>
+              <div class="name">SMMU — System Monitorowania Maszyn i Urządzeń</div>
+              <div class="meta">FAKRO · SCADA / monitoring · wdrożenie etapowe</div>
+            </div>
+            <span class="chip">produkcyjny</span>
           </div>
 
+          <p class="small" style="margin:10px 0 0">
+            System do akwizycji danych w czasie rzeczywistym z maszyn i czujników, wizualizacji w aplikacji webowej oraz budowy bazy danych do analiz.
+          </p>
+
           <ul>
-            <li>Zbieranie i normalizacja danych z urządzeń (PLC Beckhoff / Fanum oraz czujniki przemysłowe) z użyciem OPC UA, MQTT i ADS.</li>
-            <li>Wizualizacja: synoptyki, trendy, tabele; dostęp z poziomu przeglądarki.</li>
-            <li>Archiwizacja: dane dynamiczne w InfluxDB, dane statyczne/konfiguracyjne w MS SQL.</li>
-            <li>Administracja: dodawanie/edycja urządzeń, zarządzanie połączeniami, role i uprawnienia operatorów.</li>
-            <li>Plan rozwoju: alarmy z progami i priorytetami, raportowanie (PDF/Excel), integracja MES/ERP, opcjonalnie kolejki (RabbitMQ).</li>
+            <li>Zbieranie i normalizacja danych z urządzeń (OPC UA / MQTT / ADS).</li>
+            <li>Wizualizacja: synoptyki, trendy, tabele + role i uprawnienia.</li>
+            <li>Archiwizacja: InfluxDB (time-series) + MS SQL (konfiguracje i użytkownicy).</li>
           </ul>
 
-          <div class="small">
-            (Opis na bazie Twojej dokumentacji funkcji i dokumentacji rozszerzonej systemu SMMU.) 
+          <div class="tags">
+            <span class="tag">Java</span><span class="tag">Angular</span><span class="tag">InfluxDB</span><span class="tag">MS SQL</span>
+            <span class="tag">OPC UA</span><span class="tag">MQTT</span><span class="tag">ADS</span>
+          </div>
+        </div>
+
+        <!-- GitRepoInfo -->
+        <div class="card" style="padding:16px; box-shadow:none">
+          <div class="projHead">
+            <div>
+              <div class="name">GitRepoInfo</div>
+              <div class="meta">
+                <a href="https://github.com/MAGBUT/GitRepoInfo" target="_blank" rel="noreferrer">Repozytorium na GitHub</a>
+              </div>
+            </div>
+            <span class="chip purple">REST API</span>
+          </div>
+
+          <p class="small" style="margin:10px 0 0">
+            Aplikacja pobiera informacje o repozytoriach użytkownika: listę publicznych repo (bez forków), gałęzie i SHA ostatnich commitów. :contentReference[oaicite:0]{index=0}
+          </p>
+
+          <ul>
+            <li>Endpoint: <code>/api/git/user/{userName}</code> (JSON) + obsługa błędów (404/406). :contentReference[oaicite:1]{index=1}</li>
+            <li>Testy: WireMock / Rest Assured / Mockito. :contentReference[oaicite:2]{index=2}</li>
+          </ul>
+
+          <div class="tags">
+            <span class="tag">Java 17</span>
+            <span class="tag">Spring Boot 3.1.3</span>
+            <span class="tag">Lombok</span>
+            <span class="tag">WireMock</span>
+            <span class="tag">Rest Assured</span>
+            <span class="tag">Mockito</span>
+          </div>
+        </div>
+
+        <!-- Przychodnia -->
+        <div class="card" style="padding:16px; box-shadow:none">
+          <div class="projHead">
+            <div>
+              <div class="name">Przychodnia</div>
+              <div class="meta">
+                <a href="https://github.com/MAGBUT/Przychodnia" target="_blank" rel="noreferrer">Repozytorium na GitHub</a>
+              </div>
+            </div>
+            <span class="chip">aplikacja web</span>
+          </div>
+
+          <p class="small" style="margin:10px 0 0">
+            Projekt aplikacji webowej (Java + warstwa UI) związanej z obsługą „przychodni” — w repo widać część frontową (HTML/CSS) oraz backend w Javie. :contentReference[oaicite:3]{index=3}
+          </p>
+
+          <ul>
+            <li>Struktura typowa dla aplikacji backend + UI, z elementami bazy danych (diagram w repo). :contentReference[oaicite:4]{index=4}</li>
+            <li>Projekt nadaje się jako pozycja do portfolio (CRUD + logika domenowa, UI). :contentReference[oaicite:5]{index=5}</li>
+          </ul>
+
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+          </div>
+
+          <div class="small" style="margin-top:10px">
+            Jeśli chcesz, dopasuję opis 1:1 do funkcji aplikacji — podeślij 3–6 punktów „co działa” (np. rejestracja pacjenta / wizyty / lekarze / grafiki itp.).
           </div>
         </div>
       </div>
     </div>
 
     <!-- EXPERIENCE -->
-    <div class="card" style="margin-top:18px">
+    <div id="doswiadczenie" class="card" style="margin-top:16px">
       <h2>Doświadczenie</h2>
 
       <div class="row">
-        <div class="left">
-          <div class="title">Automatyk-programista — FAKRO (Nowy Sącz) <span class="badge">obecnie</span></div>
-          <div class="meta">05.2024 – obecnie</div>
-        </div>
-        <div class="right" style="flex:1; min-width:260px">
-          <ul>
-            <li>Rozwój i utrzymanie systemu SCADA / SMMU (Java + Angular).</li>
-            <li>Integracje komunikacyjne z maszynami: OPC, MQTT, ADS.</li>
-            <li>Praca z bazami: InfluxDB (real-time) oraz SQL (konfiguracje / użytkownicy).</li>
-            <li>Elementy OT: mikrokontrolery ESP (C++), sterowniki PLC (ST).</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Java</span><span class="tag">Angular</span><span class="tag">SQL</span><span class="tag">InfluxDB</span>
-            <span class="tag">OPC UA</span><span class="tag">MQTT</span><span class="tag">ADS</span><span class="tag">Git</span>
-          </div>
-        </div>
+        <div class="title">Automatyk-programista — FAKRO (Nowy Sącz)</div>
+        <div class="meta">05.2024 – obecnie</div>
+        <ul>
+          <li>Rozwój i utrzymanie systemu SCADA / SMMU (Java + Angular).</li>
+          <li>Integracje z maszynami: OPC UA / MQTT / ADS.</li>
+          <li>Bazy: InfluxDB (dane dynamiczne) + SQL (konfiguracje / użytkownicy).</li>
+          <li>OT: ESP (C++), PLC (ST).</li>
+        </ul>
       </div>
 
       <div class="row">
-        <div class="left">
-          <div class="title">Technolog-konstruktor maszyn — FAKRO (Nowy Sącz)</div>
-          <div class="meta">03.2019 – 04.2024</div>
-        </div>
-        <div class="right" style="flex:1; min-width:260px">
-          <ul>
-            <li>Konstruowanie i modernizacja maszyn, remonty oraz prace związane z programowaniem maszyn.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">Automatyka</span><span class="tag">Modernizacje</span><span class="tag">UR</span>
-          </div>
-        </div>
+        <div class="title">Technolog-konstruktor maszyn — FAKRO (Nowy Sącz)</div>
+        <div class="meta">03.2019 – 04.2024</div>
+        <ul>
+          <li>Konstruowanie i modernizacja maszyn, remonty oraz prace związane z programowaniem maszyn.</li>
+        </ul>
       </div>
 
       <div class="row">
-        <div class="left">
-          <div class="title">Programista i operator CNC — Grand (Korzenna)</div>
-          <div class="meta">09.2017 – 02.2019</div>
-        </div>
-        <div class="right" style="flex:1; min-width:260px">
-          <ul>
-            <li>Programowanie tokarki CNC, dobór narzędzi i parametrów skrawania, realizacja elementów wg rysunku.</li>
-          </ul>
-          <div class="tags">
-            <span class="tag">CNC</span><span class="tag">G-code</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="left">
-          <div class="title">Prace dorywcze (wakacje) — Wykończeniówka / Ogrodnik</div>
-          <div class="meta">06.2013 – 08.2017</div>
-        </div>
-        <div class="right" style="flex:1; min-width:260px">
-          <div class="small">Prace sezonowe.</div>
-        </div>
+        <div class="title">Programista i operator CNC — Grand (Korzenna)</div>
+        <div class="meta">09.2017 – 02.2019</div>
+        <ul>
+          <li>Programowanie tokarki CNC, dobór narzędzi i parametrów, realizacja elementów wg rysunku.</li>
+        </ul>
       </div>
     </div>
 
-    <!-- SKILLS -->
-    <div class="grid2" style="margin-top:18px">
-      <div class="card">
-        <h2>Technologie</h2>
+    <!-- SKILLS / EDU -->
+    <div class="grid2">
+      <div id="umiejetnosci" class="card">
+        <h2>Umiejętności</h2>
         <div class="tags">
           <span class="tag">Java</span>
           <span class="tag">Spring</span>
@@ -292,7 +341,7 @@
           <span class="tag">Jakarta EE</span>
           <span class="tag">REST API</span>
           <span class="tag">Angular</span>
-          <span class="tag">TypeScript / JavaScript</span>
+          <span class="tag">TypeScript</span>
           <span class="tag">SQL (MS SQL / PostgreSQL / MySQL)</span>
           <span class="tag">InfluxDB</span>
           <span class="tag">Flyway</span>
@@ -310,53 +359,30 @@
         <h2>Edukacja i kursy</h2>
 
         <div class="row">
-          <div class="left">
-            <div class="title">AGH Kraków — Automatyka i Robotyka (inż.)</div>
-            <div class="meta">10.2017 – 06.2022</div>
-          </div>
-          <div class="right" style="flex:1; min-width:260px">
-            <div class="small">Poziom: inżynier.</div>
-          </div>
+          <div class="title">AGH Kraków — Automatyka i Robotyka (inż.)</div>
+          <div class="meta">10.2017 – 06.2022</div>
         </div>
 
         <div class="row">
-          <div class="left">
-            <div class="title">Zespół Szkół Samochodowych — Mechatronika</div>
-            <div class="meta">09.2013 – 05.2017</div>
-          </div>
-          <div class="right" style="flex:1; min-width:260px">
-            <div class="small">Poziom: średnie.</div>
-          </div>
+          <div class="title">Zespół Szkół Samochodowych — Mechatronika</div>
+          <div class="meta">09.2013 – 05.2017</div>
         </div>
 
         <div class="row">
-          <div class="left">
-            <div class="title">Kursy</div>
-            <div class="meta">2021–2023</div>
-          </div>
-          <div class="right" style="flex:1; min-width:260px">
-            <ul>
-              <li>Java (zajavka.pl) — 04.2023</li>
-              <li>Spring (javastart.pl) — 03.2022</li>
-              <li>Technologie webowe (javastart.pl) — 11.2021</li>
-              <li>Java od podstaw + JavaFX (javastart.pl) — 02.2021</li>
-              <li>Obsługa i programowanie CNC (START CNC) — 08.2017</li>
-            </ul>
-          </div>
+          <div class="title">Kursy</div>
+          <ul>
+            <li>Java (zajavka.pl) — 04.2023</li>
+            <li>Spring (javastart.pl) — 03.2022</li>
+            <li>Technologie webowe (javastart.pl) — 11.2021</li>
+            <li>Java od podstaw + JavaFX (javastart.pl) — 02.2021</li>
+            <li>Obsługa i programowanie CNC (START CNC) — 08.2017</li>
+          </ul>
         </div>
       </div>
     </div>
 
-    <!-- INTERESTS + RODO -->
-    <div class="card" style="margin-top:18px">
-      <h2>Zainteresowania</h2>
-      <div class="tags">
-        <span class="tag">Nowe technologie</span>
-        <span class="tag">Elektronika</span>
-        <span class="tag">Sport</span>
-        <span class="tag">Filmy</span>
-      </div>
-
+    <div class="card" style="margin-top:16px">
+      <h2>RODO</h2>
       <div class="footer">
         Zgadzam się na przetwarzanie danych osobowych zawartych w moim CV dla celów prowadzenia rekrutacji oraz przyszłych rekrutacji.
       </div>
